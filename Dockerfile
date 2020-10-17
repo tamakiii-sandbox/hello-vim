@@ -5,6 +5,8 @@ RUN apt-get update && \
       vim \
       make \
       curl \
+      git \
+      ripgrep \
       && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
