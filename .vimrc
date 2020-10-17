@@ -1,45 +1,46 @@
 syntax on
 
-set noerrorbells
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set number
-set nowrap
-set smartcase
-set ignorecase
+" Charsets
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,default,sjis,euc-jp,latin1
+language en_US.UTF-8
+
 set noswapfile
 set nobackup
 set undofile
-set incsearch
 set colorcolumn=80
 
+set nowrap
+set noerrorbells
+set laststatus=2
+set noshowmode
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set iminsert=0
 set imsearch=0
 set clipboard=unnamed
 set browsedir=current
 
-" Charsets
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,default,sjis,euc-jp,latin1
-language en_US.UTF-8
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+set smartcase
+set backspace=indent,eol,start
+set number
+set ruler
+set cmdheight=1
+set showmatch
+set title
+set matchtime=3
+set splitright
 
-" Directories
-set directory=~/.vim/swapfile
-if v:version > 730
-  set undodir=~/.vim/undo
-endif
+" set directory=~/.vim/swapfile
+" if v:version > 730
+"   set undodir=~/.vim/undo
+" endif
 
-" Config by filetype
-augroup Filetype
-  autocmd!
-  autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-" Search
 set ignorecase
 if v:version > 730
   set wildignorecase
@@ -48,6 +49,12 @@ set wildmenu
 set wildmode=list:longest,full
 set hlsearch
 set incsearch
+
+" Config by filetype
+augroup Filetype
+  autocmd!
+  autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 " Keys
 let mapleader = ","
