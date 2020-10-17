@@ -1,4 +1,4 @@
-.PHONY: help setup dependencies build clean
+.PHONY: help setup dependencies build bash clean
 
 NAME := tamakiii-sandbox/hello-vim
 
@@ -13,6 +13,9 @@ dependencies:
 
 build:
 	docker build -t $(NAME) .
+
+bash:
+	docker run -it --rm -v $(PWD):/work -w /work $(NAME) bash
 
 clean:
 	docker image rm $(NAME)
