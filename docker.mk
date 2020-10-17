@@ -15,7 +15,13 @@ build:
 	docker build -t $(NAME) .
 
 bash:
-	docker run -it --rm -v $(PWD):/work -w /work $(NAME) bash
+	docker run \
+		-it \
+		--rm \
+		-v $(PWD):/work \
+		-w /work \
+		$(NAME) \
+		bash
 
 clean:
 	docker image rm $(NAME)
