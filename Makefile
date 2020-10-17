@@ -1,9 +1,9 @@
-.PHONY: help deploy clean
+.PHONY: help install clean
 
 help:
 	@cat $(firstword $(MAKEFILE_LIST))
 
-deploy:
+install:
 	ln -s $(PWD)/.vim ~/.vim
 	ln -s $(PWD)/.vimrc ~/.vimrc
 
