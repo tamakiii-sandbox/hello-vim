@@ -29,6 +29,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'lu-ren/SerialExperimentsLain'
 Plug 'jremmen/vim-ripgrep'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 
 " Initialize plugin system
 call plug#end()
