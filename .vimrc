@@ -47,6 +47,10 @@ call plug#end()
 " g:rg_root_types	['.git']	list of files/dir found in project root
 " g:rg_window_location	botright	quickfix window location
 
+"   preservim/nerdtree
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+let NERDTreeShowHidden=1
+
 "   Custom mapping
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 nmap ; :
