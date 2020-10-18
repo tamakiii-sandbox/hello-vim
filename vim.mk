@@ -10,6 +10,7 @@ dependencies:
 	@type curl > /dev/null
 	@type git > /dev/null
 	@type rg > /dev/null
+	@type ctags > /dev/null
 
 install: \
 	~/.vim/autoload/plug.vim

@@ -7,6 +7,7 @@ language en_US.UTF-8
 
 set noswapfile
 set nobackup
+set noundofile
 set undofile
 set colorcolumn=80
 
@@ -53,7 +54,8 @@ set incsearch
 " Config by filetype
 augroup Filetype
   autocmd!
-  autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType python setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " Keys
@@ -67,10 +69,15 @@ Plug 'preservim/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
+" Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 " jremmen/vim-ripgrep
@@ -121,6 +128,52 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ 'Clean'     :'C',
     \ 'Unknown'   :'E'
     \ }
+
+" prabirshrestha/asyncomplete.vim
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+" inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+" imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" let g:asyncomplete_auto_completeopt = 0
+" set completeopt=menuone,noinsert,noselect,preview
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+" function! NearestMethodOrFunction() abort
+"   return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
+"
+" set statusline+=%{NearestMethodOrFunction()}
+
+" " By default vista.vim never run if you don't call it explicitly.
+" "
+" " If you want to show the nearest function in your statusline automatically,
+" " you can add the following line to your vimrc
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+"
+" let g:vista_executive_for = {
+"             \ 'php': 'intelephense',
+"             \ }
+" let g:vista_ignore_kinds = ['Variable']
+"
+" if executable('intelephense')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'intelephense',
+"         \ 'cmd': {server_info->['intelephense', '--stdio']},
+"         \ 'initialization_options': {"storagePath": "/tmp/intelephense", "clearCache": v:true},
+"         \ 'whitelist': ['php'],
+"         \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+"         \             lsp#utils#find_nearest_parent_file_directory(
+"         \             lsp#utils#get_buffer_path(),
+"         \             ['.git/']
+"         \ ))},
+"         \ 'workspace_config': { 'intelephense': {
+"         \   'files.associations': ['*.php'],
+"         \ }},
+"         \ })
+" endif
 
 " Shortcuts
 nmap ; :

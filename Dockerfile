@@ -8,6 +8,8 @@ RUN apt-get update && \
       git \
       ripgrep \
       locales \
+      npm \
+      exuberant-ctags \
       && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
