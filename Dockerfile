@@ -25,6 +25,7 @@ RUN apt-get update && \
       locales \
       npm \
       exuberant-ctags \
+      file \
       && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
