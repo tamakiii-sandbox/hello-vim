@@ -6,7 +6,8 @@ help:
 	@cat $(firstword $(MAKEFILE_LIST))
 
 setup: \
-	dependencies
+	dependencies \
+	vendor/vim/vim
 
 dependencies:
 	@type docker > /dev/null
@@ -23,5 +24,12 @@ bash:
 		$(NAME) \
 		bash
 
+vendor/vim/vim: vendor
+	git clone git@github.com:vim/vim.git -b v8.2.1860 --single-branch --depth 1 $@
+
+vendor:
+	mkdir -p $@
+
 clean:
 	docker image rm $(NAME)
+	rm -rf vendor/vim/vim
